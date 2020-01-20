@@ -1,25 +1,12 @@
-# starwars
+# YodaBase
 
-## Project setup
-```
-yarn install
-```
+Project was built using the Vue.js CLI v4.1.0, styled using SCSS.
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## More details
 
-### Compiles and minifies for production
-```
-yarn build
-```
+An web application built for users search for information about the Starwars universe. 
 
-### Lints and fixes files
-```
-yarn lint
-```
+## Instructions
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-# yodabase
+Users set which category of six they want to search in on the left side of the search bar, then type in what they are looking for in the text input. If there are results returned a list of results will appear below the searchbar and users can click on a result for more information to appear in a popup other wise no results will appear and users simply need to change their search. 
+
