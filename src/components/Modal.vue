@@ -1,6 +1,6 @@
 <template>
   <div id="modal" :class="`${selectedData ? 'open' : 'closed'} wrapper`">
-    <a class="close" @click="$emit('handleSelectedData', null)">X</a>
+    <a class="modal_close" @click="$emit('handleSelectedData', null)">X</a>
     <div class="content">
       <div>
         <div class="modal_datum" v-for="(value, index) in selectedData" :key="value">
@@ -13,6 +13,9 @@
 </template>
 
 <script>
+//Template Documentation
+//Opens when "selectedData" has been populated with data.
+//Closes after "selectedData" has data cleared
 export default {
   name: "Modal",
   props: ["selectedData"]
@@ -98,7 +101,7 @@ export default {
   .modal_datum:nth-child(1) {
     border-top: none;
   }
-  .close {
+  .modal_close {
     cursor: pointer;
     font-size: 2rem;
     left: 50%;

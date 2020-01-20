@@ -21,9 +21,11 @@
 </template>
 
 <script>
+//Template Documentation -
+//Form uses 'fetchData to retrieve data - handleParamChange, handleCategoryChange to update urls
+
 export default {
-  name: "Search",
-  props: ["urlCategory"]
+  name: "Search"
 };
 </script>
 

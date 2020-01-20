@@ -17,6 +17,12 @@
 </template>
 
 <script>
+//Template Documentation -
+//Results appear if "results" contain data.
+//Error appears if "error === true"
+//Loader appears if "loader === true"
+
+//Each result item has even attached to open modal and set "selectedData" to items value to show expanded info to user.
 import Loader from "./Loader";
 export default {
   name: "List",

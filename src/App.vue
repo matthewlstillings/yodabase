@@ -34,45 +34,55 @@ export default {
     Modal
   },
   data: function() {
+    //"state"
     return {
-      results: null,
-      urlCategory: "films",
-      searchParams: "Params",
-      selectedData: null,
-      error: false,
-      loading: false
+      results: null, //stores results
+      urlCategory: "films", //stores category in which to search database with
+      searchParams: "", //stores search paras to build URL
+      selectedData: null, //stores "featured" data that goes into modal
+      error: false, //sets to to true if search returns nothing
+      loading: false //sets to true while returning results
     };
   },
   methods: {
+    //fetches data when user searches
     fetchData(event) {
       event.preventDefault();
-      this.results = [];
-      this.error = false;
-      this.loading = true;
-      const dataUrl = `https://swapi.co/api/${this.urlCategory}/?search=${this.searchParams}`;
+      this.results = []; //clear results on new search
+      this.error = false; //will set error to false is previous search returns no results
+      this.loading = true; //initiates loading screen
+      const dataUrl = `https://swapi.co/api/${
+        this.urlCategory
+      }/?search=${encodeURIComponent(this.searchParams)}`;
       fetch(dataUrl)
         .then(response => response.json())
         .then(data => {
           if (data.results.length === 0) {
+            //if no data returns, set error
             this.error = !this.error;
             this.results = [];
             this.loading = false;
           } else {
+            //if data returns, set results
             this.results = data.results;
-            this.loading = false;
+            this.loading = false; //ends loading screen
           }
         });
     },
+    //change category (for url build) to search in from select element
     handleCategoryChange(category) {
       this.urlCategory = category;
     },
+    //change search params for url build
     handleParamChange(params) {
       this.searchParams = params;
     },
+    //set "featured" data for modal
     handleSelectedData(data) {
       this.selectedData = data;
     }
   },
+  //watches for data changes on these functions
   watch: {
     value: function() {
       this.handleParamChange();

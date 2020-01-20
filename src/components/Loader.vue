@@ -1,7 +1,7 @@
 <template>
   <div id="loader" class="contain">
     <div class="loader_wrapper">
-      <div class="hm-spinner"></div>
+      <div class="loader_spinner"></div>
     </div>
   </div>
 </template>
@@ -22,7 +22,7 @@ export default {
   top: 3rem;
   transform: translate(-50%);
 }
-.hm-spinner {
+.loader_spinner {
   height: 115px;
   width: 115px;
   border: 5px solid transparent;
@@ -33,7 +33,7 @@ export default {
   animation: spin 3s linear infinite;
 }
 
-.hm-spinner::before {
+.loader_spinner::before {
   content: "";
   position: absolute;
   top: 20px;
@@ -41,8 +41,8 @@ export default {
   bottom: 20px;
   left: 20px;
   border: 5px solid transparent;
-  border-top-color: lighten(#ffe81f, 15%);
-  border-bottom-color: lighten(#ffe81f, 15%);
+  border-top-color: white;
+  border-bottom-color: white;
   border-radius: 50%;
   -webkit-animation: spin 1.5s linear infinite;
   animation: spin 1.5s linear infinite;
