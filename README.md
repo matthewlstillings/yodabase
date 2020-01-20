@@ -2,6 +2,8 @@
 
 Project was built using the Vue.js CLI v4.1.0, styled using SCSS.
 
+Link to deployed version: https://pensive-leavitt-8d3741.netlify.com
+
 ## More details
 
 An web application built for users search for information about the Starwars universe. 
