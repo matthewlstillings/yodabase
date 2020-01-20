@@ -12,7 +12,7 @@
       <input
         type="text"
         class="search_input"
-        placeholder="Are these the droids you looking for?"
+        placeholder="Data, you seek?"
         @keyup="$emit('handleParamChange', $event.target.value)"
       />
       <button class="search_submit" type="submit">Search</button>
@@ -29,6 +29,7 @@ export default {
 
 <style lang="scss">
 form {
+  display: flex;
   margin: auto;
   max-width: 700px;
 }
@@ -40,10 +41,12 @@ form {
   color: black;
   font-family: "Roboto", sans-serif;
   height: 32px;
-  padding: 0.5em;
-  appearance: none;
+  -webkit-appearance: none;
+  font-size: 16.5px;
 }
 .search_input {
+  padding: 0.5em;
+  border-radius: 0;
   width: 50%;
 }
 .search_select {
@@ -51,12 +54,16 @@ form {
   border-radius: 5px 0px 0px 5px;
   border-right: 1px solid black;
   cursor: pointer;
+  padding: 0 0.5em;
   text-align: center;
   transition: background-color 0.3s ease;
   width: 25%;
 }
 .search_select:hover {
   background: darken(#ffe81f, 15%);
+}
+.search_select:focus {
+  font-size: 16.5px;
 }
 option {
   border-bottom: 1px solid black;
@@ -68,6 +75,7 @@ option {
   cursor: pointer;
   transition: background-color 0.3s ease;
   width: 25%;
+  border-left: 1px solid black;
 }
 .search_submit:hover {
   background: darken(#ffe81f, 15%);

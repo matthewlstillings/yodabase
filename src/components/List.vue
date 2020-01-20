@@ -12,13 +12,18 @@
     <div class="no_results" v-if="error">
       <p>Sorry, these are not the droids you were looking for.</p>
     </div>
+    <Loader v-if="loading" />
   </div>
 </template>
 
 <script>
+import Loader from "./Loader";
 export default {
   name: "List",
-  props: ["results", "error"]
+  props: ["results", "error", "loading"],
+  components: {
+    Loader
+  }
 };
 </script>
 
@@ -31,7 +36,7 @@ export default {
     cursor: pointer;
     display: flex;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 1rem 0;
   }
   .result:nth-last-child(1) {
     border-bottom: none;

@@ -74,14 +74,14 @@ export default {
     max-height: 500px;
     overflow-y: scroll;
     max-width: 700px;
-    padding: 1rem;
+    padding: 2rem 1rem;
     position: relative;
     transform: translate(-50%);
     top: 20%;
     width: 95%;
   }
   .modal_datum {
-    border-bottom: 1px solid black;
+    border-top: 1px solid black;
     padding: 0.5rem;
     .key {
       color: darken(#ffe81f, 14%);
@@ -94,6 +94,9 @@ export default {
       color: black;
       text-transform: capitalize;
     }
+  }
+  .modal_datum:nth-child(1) {
+    border-top: none;
   }
   .close {
     cursor: pointer;

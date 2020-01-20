@@ -7,7 +7,12 @@
       @handleCategoryChange="handleCategoryChange"
       @fetchData="fetchData"
     />
-    <List v-bind:results="results" v-bind:error="error" @handleSelectedData="handleSelectedData" />
+    <List
+      v-bind:results="results"
+      v-bind:error="error"
+      v-bind:loading="loading"
+      @handleSelectedData="handleSelectedData"
+    />
     <Modal
       :class="`${urlCategory}_modal`"
       v-bind:selectedData="selectedData"
@@ -34,13 +39,16 @@ export default {
       urlCategory: "films",
       searchParams: "Params",
       selectedData: null,
-      error: false
+      error: false,
+      loading: false
     };
   },
   methods: {
     fetchData(event) {
       event.preventDefault();
+      this.results = [];
       this.error = false;
+      this.loading = true;
       const dataUrl = `https://swapi.co/api/${this.urlCategory}/?search=${this.searchParams}`;
       fetch(dataUrl)
         .then(response => response.json())
@@ -48,11 +56,10 @@ export default {
           if (data.results.length === 0) {
             this.error = !this.error;
             this.results = [];
+            this.loading = false;
           } else {
             this.results = data.results;
-            this.listKey = Object.keys(data.results[0]).map(category => {
-              return category.replace(/_/g, " ");
-            });
+            this.loading = false;
           }
         });
     },
@@ -89,8 +96,8 @@ export default {
 }
 body {
   background: #232323;
-  font-size: 16px;
-  padding: 5rem 1.5rem 1.5rem;
+  font-size: 14px;
+  padding: 5rem 0.5rem 1.5rem;
   color: white;
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -106,5 +113,10 @@ h1 {
 }
 .app_subtitle {
   margin-bottom: 1rem;
+}
+@media (min-width: 767px) {
+  body {
+    font-size: 18px;
+  }
 }
 </style>
